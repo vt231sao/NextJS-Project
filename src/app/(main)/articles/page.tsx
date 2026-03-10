@@ -1,15 +1,20 @@
-export default async function Page() {
-    const res = await fetch('https://jsonplaceholder.typicode.com/posts/')
-    const posts = await res.json()
-    return <div>
-        <h2 className="text-xl font-bold mb-4">Всі статті</h2>
-        <ul className="space-y-2">
-            {posts.slice(0, 10).map((article: any) => (
-                <li key={article.id} className="p-4 border rounded shadow-sm">
-                    <h3 className="font-semibold capitalize">{article.title}</h3>
-                    <p className="text-gray-600 text-sm mt-1">{article.body}</p>
-                </li>
-            ))}
-        </ul>
-    </div>
+import ArticleCard from '@/app/components/ArticleCard';
+
+export default async function ArticlesPage() {
+    const res = await fetch('https://jsonplaceholder.typicode.com/posts');
+    const articles = await res.json();
+
+    return (
+        <div className="max-w-7xl mx-auto py-8">
+            <h1 className="text-4xl font-extrabold mb-8 text-slate-800 border-b-4 border-brand-main inline-block pb-2">
+                Latest Articles
+            </h1>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 3xl:grid-cols-4 gap-6">
+                {articles.slice(0, 12).map((article: any) => (
+                    <ArticleCard key={article.id} article={article} />
+                ))}
+            </div>
+        </div>
+    );
 }
