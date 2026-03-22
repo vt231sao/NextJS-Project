@@ -1,0 +1,26 @@
+.navContainer {
+    display: flex;
+    gap: 1.5rem;
+    padding: 1rem 2rem;
+    background-color: var(--bg-surface);
+    border-bottom: 2px solid var(--border-color);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.navLink {
+    text-decoration: none;
+    color: var(--text-primary);
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.navLink:hover {
+    color: var(--text-active);
+}
+
+.navLinkActive {
+    color: var(--text-active);
+    font-weight: 700;
+    border-bottom: 2px solid var(--text-active);
+    padding-bottom: 2px;
+}
